@@ -23,16 +23,17 @@ else:
 	sys.exit()
 
 
-print('\n')
-print('-' * 50)
-print("Scanning started {}".format(dt.now()))
-print('-' * 50)
-print('\n')
+def report():
+	print('\n')
+	print('-' * 50)
+	print("Scanning started {}".format(dt.now()))
+	print('-' * 50)
+	print('\n')
 
 
-
+report()
 alive_subdomains = []
-for index in range(0, 10):
+for index in range(0, subdomains_count):
 	try:
 		target = socket.gethostbyname(subdomains[index]) #translate hostname to IPv4
 		default_ports = [80, 443]
@@ -67,3 +68,5 @@ file = open("new_subdomain.txt", 'w')
 for subdomain in alive_subdomains:
 	file.write(subdomain[0] + '\n')
 file.close()
+
+report()
