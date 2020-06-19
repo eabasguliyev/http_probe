@@ -23,15 +23,12 @@ else:
 	sys.exit()
 
 
-def report():
-	print('\n')
-	print('-' * 50)
-	print("Scanning started {}".format(dt.now()))
-	print('-' * 50)
-	print('\n')
+print('\n')
+print('-' * 50)
+print("Scanning started {}".format(dt.now()))
+print('-' * 50)
+print('\n')
 
-
-report()
 alive_subdomains = []
 for index in range(0, subdomains_count):
 	try:
@@ -69,4 +66,8 @@ for subdomain in alive_subdomains:
 	file.write(subdomain[0] + '\n')
 file.close()
 
-report()
+print('\n')
+print('-' * 50)
+print("Scanning ended {}".format(dt.now()))
+print('-' * 50)
+print('\n')
